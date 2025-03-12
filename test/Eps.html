@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>พลังงานศักย์ยืดหยุ่น</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: large;
+            margin: 0;
+            background-image: url(https://miro.medium.com/v2/resize:fit:1400/1*_kfiFF7xTLxx6OT6WxLW5A.jpeg);
+            background-size: 100% 1000px;
+        }
+        .top{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 90px;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .steps {
+            text-align: left;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+        .button1{
+            width: 70%;
+            padding: 10px;
+            background-color: blue;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .front{
+            width: 70%;
+            padding: 10px;
+            background-color: #0004ff;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .tt{
+            text-decoration: underline ;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="tt"><h1>หาแรงสู่ศูนย์กลาง</h1></div>
+        <div class="tt2"><button onclick="frontpage()" type="submit" class="front">Home</button></div>
+    </div>
+    <div class="container">
+        <h1>พลังงานศักย์ยืดหยุ่น</h1>
+        <label for="k">ค่านิจ (N/m):</label>
+        <input type="number" id="k" step="any">
+        <br><br>
+        <label for="x">ระยะยืดจากจุดสมดุล (m)</label>
+        <input type="number" id="x" step="any">
+        <br><br>
+        <button onclick="calculateForce()"class="button1">คำนวณผลลัพท์</button>
+        <div class="result" id="result"></div>
+        <div class="steps" id="steps"></div>
+    </div>
+
+    <script>
+        function calculateForce() {
+            const k = parseFloat(document.getElementById('k').value);
+            const x = parseFloat(document.getElementById('x').value);
+
+            if (isNaN(k) || isNaN(x)) {
+                document.getElementById('result').innerHTML = 'กรุณากรอกข้อมูลให้ครบ';
+                document.getElementById('steps').innerHTML = '';
+                return;
+            }
+
+            const force = 1/2 * k * x * x ;
+            document.getElementById('result').innerHTML = `ผลลัพท์: ${force} N`;
+
+            const steps = `
+                <h2>ขั้นตอนในการคำนวณหาแรงสู่ศูนย์กลาง:</h2>
+                <p>1. ใช้สูตร: <strong>Eps = 1/2*kx^2></p>
+                <p>2. โดยที่:</p>
+                <ul>
+                    <li><strong>Eps</strong> พลังงานศักย์ยืดหยุ่น (J)</li>
+                    <li><strong>k</strong> ค่านิจ (N/m)</li>
+                    <li><strong>x</strong> ระยะยืดจากจุดสมดุล (m)</li>
+                </ul>
+                <p>3. แทนค่า:</p>
+                <p>Fc = 1/2 * ${k} N/m * ${x*x} m</p>
+                <p>4. ผลลัพท์:</p>
+                <p>Eps = ${force} J</p>
+            `;
+            document.getElementById('steps').innerHTML = steps;
+        }
+    </script>
+    <script>
+        function frontpage () {
+                location.href="Front page.html";
+            }
+    </script>
+</body>
+</html>

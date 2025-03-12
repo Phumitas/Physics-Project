@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture and Text Boxes</title>
+    <style>
+        .top :first-child{
+            background-color: rgba(255, 255, 255, 0.5);
+            background-size: 100% 100%;
+            border: solid black 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 100%;
+            width: 100%;
+            height: 100px;
+            padding: 0;
+            margin-top: 0px;
+        }
+        body {
+            background-image: url(https://preview.redd.it/beautiful-nature-4k-mobile-wallpapers-pack-download-link-in-v0-9txew1f4a9hd1.jpeg?auto=webp&s=b7d20d29b9959040b2161f982fc4f265874eb1fa);
+            background-repeat: no-repeat;
+            background-size: 100% 1800px;
+            font-family: Arial, sans-serif;
+            justify-content: center;
+            align-items: center; 
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(72, 69, 69, 0.6);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            max-width: 100%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            gap: 60px;
+            height: 300px;
+        }
+
+        .picture-box {
+            flex: 1;
+            padding: 50px;
+            text-align: center;
+            color: white;
+            background-color:rgb(72, 69, 69, 0.6);
+        }
+
+        .picture-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .text-box {
+            flex: 1;
+            padding: 50px;
+            background-color:rgb(72, 69, 69, 0.6);
+            color: rgb(255, 254, 254);
+        }
+        .page1{
+            width: 70%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .pic1{
+            background-image:url(https://f.ptcdn.info/635/070/000/qfi5mzc8eYkkNtbhnVG-o.png)    ; 
+            background-size: 100% 100%;            
+        }
+        .pic2{
+            background-image: url(https://static.trueplookpanya.com/tppy/member/m_557500_560000/559384/cms/images/shutterstock_%E0%B9%81%E0%B8%A3%E0%B8%87%E0%B8%94%E0%B8%B6%E0%B8%87%E0%B8%94%E0%B8%B9%E0%B8%94%E0%B8%A3%E0%B8%B0%E0%B8%AB%E0%B8%A7%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%A1%E0%B8%A7%E0%B8%A5%203.jpg);
+            background-size: 100% 100%;
+        }
+        .pic3{
+            background-image: url(https://slideplayer.in.th/slide/16161647/95/images/21/%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%88%E0%B8%A5%E0%B8%99%E0%B9%8C+%28Kinetic+Energy%29.jpg);
+            background-size: 100% 100%;
+        }
+        .pic4{
+            background-image: url(https://slideplayer.in.th/slide/16161647/95/images/34/%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%A8%E0%B8%B1%E0%B8%81%E0%B8%A2%E0%B9%8C%E0%B9%82%E0%B8%99%E0%B9%89%E0%B8%A1%E0%B8%96%E0%B9%88%E0%B8%A7%E0%B8%87+%28Gravitational+Potential+Energy%29.jpg);
+            background-size: 100% 100%;
+        }
+        .pic5{
+            background-image: url(https://slideplayer.in.th/slide/16161647/95/images/37/%E0%B8%9E%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%A8%E0%B8%B1%E0%B8%81%E0%B8%A2%E0%B9%8C%E0%B8%A2%E0%B8%B7%E0%B8%94%E0%B8%AB%E0%B8%A2%E0%B8%B8%E0%B9%88%E0%B8%99+%28+Elastic+Potential+Energy%29.jpg);
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <h1>เว็บคำนวณสูตรฟิสิกส์</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="picture-box pic1">
+                
+            </div>
+            <div class="text-box">
+                <h1>1.แรงสู่ศูนย์กลาง</h1>
+                <h4>หาค่าและแสงวิธีทำได้โดยการกดปุ่มด้านล่างเพื่อคำอธิบายมากขึ้น</h4>
+                <button type="button" onclick="page1()" class="page1">Lets go</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="picture-box">
+                <h1>2.แรงดึงดูดระหว่างมวล</h1>
+                <h4>หาค่าและแสงวิธีทำได้โดยการกดปุ่มด้านล่างเพื่อคำอธิบายมากขึ้น</h4>
+                <button type="button" onclick="page2()" class="page1">Lets go</button>
+            </div>
+            <div class="text-box pic2">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="picture-box pic3">
+                
+            </div>
+            <div class="text-box">
+                <h1>3.พลังงานจลน์</h1>
+                <h4>หาค่าและแสงวิธีทำได้โดยการกดปุ่มด้านล่างเพื่อคำอธิบายมากขึ้น</h4>
+                <button type="button" onclick="page3()" class="page1">Lets go</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="picture-box">
+                <h1>4.พลังงานศักย์โน้มถ่วง</h1>
+                <h4>หาค่าและแสงวิธีทำได้โดยการกดปุ่มด้านล่างเพื่อคำอธิบายมากขึ้น</h4>
+                <button type="button" onclick="page4()" class="page1">Lets go</button>
+            </div>
+            <div class="text-box pic4">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="picture-box pic5">
+                
+            </div>
+            <div class="text-box">
+                <h1>5.พลังงานศักย์ยืดหยุ่น</h1>
+                <h4>หาค่าและแสงวิธีทำได้โดยการกดปุ่มด้านล่างเพื่อคำอธิบายมากขึ้น</h4>
+                <button type="button" onclick="page5()" class="page1">Lets go</button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function page1() {
+            location.href="Fc.html";
+        }
+        function page2() {
+            location.href="F.html";
+        }
+        function page4() {
+            location.href="Ep.html";
+        }
+        function page3() {
+            location.href="Ek.html";
+        }
+        function page5() {
+            location.href="Eps.html";
+        }
+    </script>
+</body>
+
+</html>

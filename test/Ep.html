@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>พลังงานศักย์โน้มถ่วง</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: large;
+            margin: 0;
+            background-image: url(https://images.unsplash.com/photo-1503614472-8c93d56e92ce?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fDRrJTIwbmF0dXJlfGVufDB8fDB8fHww);
+            background-size: 100% 1200px;
+        }
+        .top{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 90px;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .steps {
+            text-align: left;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+        .button1{
+            width: 70%;
+            padding: 10px;
+            background-color: blue;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .front{
+            width: 70%;
+            padding: 10px;
+            background-color: #0004ff;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .tt{
+            text-decoration: underline ;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="tt"><h1>พลังงานศักย์โน้มถ่วง</h1></div>
+        <div class="tt2"><button onclick="frontpage()" type="submit" class="front">Home</button></div>
+    </div>
+    <div class="container">
+        <h1>พลังงานศักย์โน้มถ่วง</h1>
+        <label for="m">มวล (kg):</label>
+        <input type="number" id="m" step="any">
+        <br><br>
+        <label for="h">ความสูง (m):</label>
+        <input type="number" id="h" step="any">
+        <br><br>
+        <button onclick="calculateForce()"class="button1">คำนวณผลลัพท์</button>
+        <div class="result" id="result"></div>
+        <div class="steps" id="steps"></div>
+    </div>
+
+    <script>
+        function calculateForce() {
+            const m = parseFloat(document.getElementById('m').value);
+            const h = parseFloat(document.getElementById('h').value);
+            const G =10;
+
+            if (isNaN(m) || isNaN(h)) {
+                document.getElementById('result').innerHTML = 'กรุณากรอกข้อมูลให้ครบ';
+                document.getElementById('steps').innerHTML = '';
+                return;
+            }
+
+            const force = m * G * h ;
+            document.getElementById('result').innerHTML = `ผลลัพท์: ${force} J`;
+
+            const steps = `
+                <h2>ขั้นตอนในการคำนวณหาพลังงานศักย์โน้มถ่วง:</h2>
+                <p>1. ใช้สูตร: <strong>Ep = mgh</strong></p>
+                <p>2. โดยที่:</p>
+                <ul>
+                    <li><strong>Ep</strong> แรงสู่ศูนย์กลาง (J)</li>
+                    <li><strong>m</strong> มวล (kg)</li>
+                    <li><strong>G</strong> ค่าคงที่ของแรงโน้มถ่วง มีค่า = 10 (m/s)</li>
+                    <li><strong>h</strong> ความสูง (m)</li>
+                    
+                </ul>
+                <p>3. แทนค่า:</p>
+                <p>Fc = ${m} kg * ${G} m/s * ${h} m}</p>
+                <p>4. ผลลัพท์:</p>
+                <p>Ep = ${force} J</p>
+            `;
+            document.getElementById('steps').innerHTML = steps;
+        }
+    </script>
+    <script>
+        function frontpage () {
+                location.href="Front page.html";
+            }
+    </script>
+</body>
+</html>

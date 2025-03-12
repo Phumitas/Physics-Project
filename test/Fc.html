@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หาแรงสู่ศูนย์กลาง</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: large;
+            margin: 0;
+            background-image: url(https://static.vecteezy.com/system/resources/previews/049/855/259/non_2x/nature-background-high-resolution-wallpaper-for-a-serene-and-stunning-view-photo.jpg);
+            background-size: 100% 1200px;
+        }
+        .top{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+            
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 90px;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .steps {
+            text-align: left;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+        .button1{
+            width: 70%;
+            padding: 10px;
+            background-color: blue;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .front{
+            width: 70%;
+            padding: 10px;
+            background-color: #0004ff;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .tt{
+            text-decoration: underline ;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="tt"><h1>หาแรงสู่ศูนย์กลาง</h1></div>
+        <div class="tt2"><button onclick="frontpage()" type="submit" class="front">Home</button></div>
+    </div>
+    <div class="container">
+        <h1>หาแรงสู่ศูนย์กลาง</h1>
+        <label for="mass">มวล (kg):</label>
+        <input type="number" id="m" step="any">
+        <br><br>
+        <label for="v">ความเร็ว (m/s):</label>
+        <input type="number" id="v" step="any">
+        <br><br>
+        <label for="r">รัสมี (m):</label>
+        <input type="number" id="r" step="any">
+        <br><br>
+        <button onclick="calculateForce()" class="button1">คำนวณผลลัพท์</button>
+        <div class="result" id="result"></div>
+        <div class="steps" id="steps"></div>
+    </div>
+
+    <script>
+        function calculateForce() {
+            const m = parseFloat(document.getElementById('m').value);
+            const v = parseFloat(document.getElementById('v').value);
+            const r = parseFloat(document.getElementById('r').value);
+
+            if (isNaN(m) || isNaN(v) || isNaN(r)) {
+                document.getElementById('result').innerHTML = 'กรุณากรอกข้อมูลให้ครบ';
+                document.getElementById('steps').innerHTML = '';
+                return;
+            }
+
+            const force = m * v * v / r;
+            document.getElementById('result').innerHTML = `ผลลัพท์: ${force} N`;
+
+            const steps = `
+                <h2>ขั้นตอนในการคำนวณหาแรงสู่ศูนย์กลาง:</h2>
+                <p>1. ใช้สูตร: <strong>Fc = mv^2/r</strong></p>
+                <p>2. โดยที่:</p>
+                <ul>
+                    <li><strong>Fc</strong> แรงสู่ศูนย์กลาง (N)</li>
+                    <li><strong>m</strong> มวล (kg)</li>
+                    <li><strong>v</strong> ความเร็ว (m/s)</li>
+                    <li><strong>r</strong> รัสมี (m)</li>
+                </ul>
+                <p>3. แทนค่า:</p>
+                <p>Fc = ${m} kg * ${v*v} m/s / ${r}</p>
+                <p>4. ผลลัพท์:</p>
+                <p>Fc = ${force} N</p>
+            `;
+            document.getElementById('steps').innerHTML = steps;
+        }
+    </script>
+    <script>
+        function frontpage () {
+                location.href="Front page.html";
+            }
+    </script>
+</body>
+</html>
